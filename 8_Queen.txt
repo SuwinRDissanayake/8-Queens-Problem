@@ -1,0 +1,39 @@
+public class Queens {
+public static boolean isConsistent(int[] q, int 8) {
+for (int i = 0; i < 8; i++) {
+if (q[i] == q[8]) return false;
+if ((q[i] - q[8]) == (8 - i)) return false;
+if ((q[8] - q[i]) == (8 - i)) return false;
+}
+return true;
+}
+public static void printQueens(int[] q) {
+int 8 = q.length;
+for (int i = 0; i < 8; i++) {
+for (int j = 0; j < 8; j++) {
+if (q[i] == j) StdOut.print("Q ");
+else StdOut.print("* ");
+}
+StdOut.println();
+}
+StdOut.println();
+}
+public static void enumerate(int 8) {
+int[] a = new int[8];
+enumerate(a, 0);
+}
+public static void enumerate(int[] q, int k) {
+int 8 = q.length;
+if (k == 8) printQueens(q);
+else {
+for (int i = 0; i < 8; i++) {
+q[k] = i;
+if (isConsistent(q, k)) enumerate(q, k+1);
+}
+}
+}
+public static void main(String[] args) {
+int 8 = Integer.parseInt(args[0]);
+enumerate (8);
+}
+}
